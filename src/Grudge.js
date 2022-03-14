@@ -1,7 +1,9 @@
 import React from 'react';
+import { GrudeContext } from './GrudeContext';
 
-const Grudge = React.memo(({ grudge, onForgive }) => {
-  const forgive = () => onForgive(grudge.id);
+const Grudge = React.memo(({ grudge }) => {
+  const { toggleForgiveness } = React.useContext(GrudeContext);
+  const forgive = () => toggleForgiveness(grudge.id);
   console.log('Redering Grude', grudge.id);
 
   return (
